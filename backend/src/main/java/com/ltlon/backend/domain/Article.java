@@ -1,11 +1,14 @@
 package com.ltlon.backend.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 /**
  * <p>
@@ -16,12 +19,11 @@ import lombok.EqualsAndHashCode;
  * @since 2020-06-01
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class Article implements Serializable {
+@Entity
+public class Article {
 
-    private static final long serialVersionUID=1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
     private Integer commentCounts;
