@@ -14,6 +14,7 @@ frontend/target
 frontend/test-output
 frontend/tests/e2e/reports
 frontend/tests/unit/coverage
+frontend/.vuepress/dist
 frontend/yarn-error.log
 frontend/yarn.lock
 selenium-debug.log
