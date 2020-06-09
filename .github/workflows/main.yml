@@ -43,7 +43,7 @@ jobs:
       # Remote port
         REMOTE_PORT: "36288"
       # Source directory
-        SOURCE: "./frontend/docs/.vuepress/blog/"
+        SOURCE: "frontend/docs/.vuepress/blog/"
       # Target directory
         TARGET: ${{ env.WWWROOT_DIR }}
       
