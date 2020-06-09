@@ -8,7 +8,15 @@ on:
   push:
     branches: [ master ]
 env:
-  WWWROOT_DIR: "/usr/Long/software/www/blog"
+  WWWROOT_DIR: "/usr/Long/software/www/"
+  BUILD_SCRIPT: "#!/usr/bin/env bash
+                 ti1=`date +%s`
+                 ti2=`date +%s`
+                 i=$(($ti2 - $ti1 ))
+                 while [[ 'i'-ne '10']]
+                 do
+	               ti2=`date +%s`
+	               i=$(($ti2 - $ti1 ))"  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -24,8 +32,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
     # 安装vuepress到本地依赖，并且构建生成静态资源  
-    - run: cd ./frontend/ && yarn add -D vuepress && nohup yarn docs:build &
-    - run: mv ./frontend/docs/.vuepress/dist ./frontend/docs/.vuepress/blog 
+    - run: cd ./frontend/ && ./build.sh
     # 安装yarn  
     #- name: action-yarn
     #  uses: comchangs/action-yarn@v0.1-beta  
