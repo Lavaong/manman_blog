@@ -9,14 +9,6 @@ on:
     branches: [ master ]
 env:
   WWWROOT_DIR: "/usr/Long/software/www/"
-  BUILD_SCRIPT: "#!/usr/bin/env bash
-                 ti1=`date +%s`
-                 ti2=`date +%s`
-                 i=$(($ti2 - $ti1 ))
-                 while [[ 'i'-ne '10']]
-                 do
-	               ti2=`date +%s`
-	               i=$(($ti2 - $ti1 ))"  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
