@@ -25,12 +25,17 @@ module.exports = {
             {
                 choosen: 'gitalk',
                 options: {
-                    clientID: 'GitHub Application Client ID',
-                    clientSecret: 'GitHub Application Client Secret',
-                    repo: 'GitHub repo',
-                    owner: 'GitHub repo owner',
-                    admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
-                    distractionFreeMode: false
+                    clientID: 'e366516a0b47a60820fd',
+                    clientSecret: '96577125335d54765b83632be85ec161351c3bf7',
+                    repo: 'https://github.com/Lavaong/manman_blog',
+                    owner: 'Lavaong',
+                    admin: ['Lavaong'],
+                    distractionFreeMode: false,
+                    pagerDirection: 'last', // 'first'正序 | 'last'倒序
+                    id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", //  页面的唯一标识,长度不能超过50
+                    title: "「评论」<%- document.title %>", // GitHub issue 的标题
+                    labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+                    body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
                 }
             }
         ]
