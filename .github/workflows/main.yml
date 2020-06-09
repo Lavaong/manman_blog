@@ -34,13 +34,13 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.2
       with:
         # Private Key
-        SSH_PRIVATE_KEY: ${{ secrets.security }}
+        SSH_PRIVATE_KEY: ${{ secrets.SECURITY }}
         # Remote host
-        REMOTE_HOST: ${{ secrets.host }}
+        REMOTE_HOST: ${{ secrets.HOST }}
         # Remote user
-        REMOTE_USER: ${{ secrets.user }}
+        REMOTE_USER: ${{ secrets.USER }}
       # Remote port
-        REMOTE_PORT: ${{ secrets.port }}
+        REMOTE_PORT: ${{ secrets.PORT }}
       # Source directory
         SOURCE: ./frontend/docs/.vuepress/blog/
       # Target directory
