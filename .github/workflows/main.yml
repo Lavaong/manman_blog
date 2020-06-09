@@ -36,11 +36,11 @@ jobs:
         # Private Key
         SSH_PRIVATE_KEY: ${{ secrets.SECURITY }}
         # Remote host
-        REMOTE_HOST: ${{ secrets.HOST }}
+        REMOTE_HOST: "188.131.134.127"
         # Remote user
-        REMOTE_USER: ${{ secrets.USER }}
+        REMOTE_USER: "Long"
       # Remote port
-        REMOTE_PORT: ${{ secrets.PORT }}
+        REMOTE_PORT: "36288"
       # Source directory
         SOURCE: ./frontend/docs/.vuepress/blog/
       # Target directory
