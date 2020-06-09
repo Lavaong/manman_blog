@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
 env:
-  WWWROOT_DIR: "/usr/Long/software/www/"
+  WWWROOT_DIR: "/usr/Long/software/www/blog/"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -32,9 +32,10 @@ jobs:
     # 通过ssh的方式传输runer机器生成的dist文件夹到目标部署机器的www目录
     - name: ssh deploy
       uses: easingthemes/ssh-deploy@v2.1.2
-      with:
+      env:
         # Private Key
         SSH_PRIVATE_KEY: ${{ secrets.SECURIT }}
+        ARGS: "-rltgoDzvO --delete"
         # Remote host
         REMOTE_HOST: "188.131.134.127"
         # Remote user
@@ -42,7 +43,7 @@ jobs:
       # Remote port
         REMOTE_PORT: "36288"
       # Source directory
-        SOURCE: ./frontend/docs/.vuepress/blog/
+        SOURCE: "./frontend/docs/.vuepress/blog/"
       # Target directory
         TARGET: ${{ env.WWWROOT_DIR }}
       
