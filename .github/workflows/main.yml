@@ -7,7 +7,8 @@ name: CI
 on:
   push:
     branches: [ master ]
-
+env:
+  WWWROOT_DIR: "/usr/Long/software/www/blog"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,12 +20,24 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
-    - name: Build and Deploy  
-      run: cd frontend
-           npm run docs:build 
-
-    # Runs a set of commands using the runners shell
+      
+    - run: cd ./frontend/ && npm run docs:build
+     
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.1.2
+      with:
+        # Private Key
+        SSH_PRIVATE_KEY: ${{ env.security }}
+        # Remote host
+        REMOTE_HOST: ${{ secrets.host }}
+        # Remote user
+        REMOTE_USER: ${{ secrets.user }}
+      # Remote port
+        REMOTE_PORT: ${{ secrets.port }}
+      # Source directory
+        SOURCE: ./frontend/docs/.vuepress/dist/
+      # Target directory
+        TARGET: ${{ env.WWWROOT_DIR }}
+      
