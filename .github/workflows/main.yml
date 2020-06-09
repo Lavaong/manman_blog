@@ -24,8 +24,8 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
     # 安装yarn  
-    - name: action-yarn
-      uses: comchangs/action-yarn@v0.1-beta  
+    #- name: action-yarn
+    #  uses: comchangs/action-yarn@v0.1-beta  
     # 安装vuepress到本地依赖，并且构建生成静态资源  
     - run: cd ./frontend/ &&  yarn add -D vuepress && yarn docs:build
     - run: mv ./frontend/docs/.vuepress/dist ./frontend/docs/.vuepress/blog   
