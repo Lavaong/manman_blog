@@ -1,11 +1,9 @@
 ---
- title: 网站初始化
- description: 记录一些东西，弃用hexo
- date: 2020-06-08 11:12:36
- categories:
-   - vue
-   - 前端 
- tags: 
-   - 搭建
+home: true   
+heroText: Sky Dragon0's Blog
+heroImg: /img/me.png
+tagline: 烂笔头,好记性
+postList: detailed
+     
 ---
     
