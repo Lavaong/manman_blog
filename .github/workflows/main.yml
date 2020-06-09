@@ -24,7 +24,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
     # 安装vuepress到本地依赖，并且构建生成静态资源  
-    - run: cd ./frontend/ && sudo ./build.sh
+    - run: cd ./frontend/ && chmod 755 build.sh && ./build.sh
     # 安装yarn  
     #- name: action-yarn
     #  uses: comchangs/action-yarn@v0.1-beta  
