@@ -23,13 +23,13 @@ jobs:
     # 安装node环境  
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
+    # 安装vuepress到本地依赖，并且构建生成静态资源  
+    - run: cd ./frontend/ && yarn add -D vuepress && yarn docs:build
+    - run: mv ./frontend/docs/.vuepress/dist ./frontend/docs/.vuepress/blog 
     # 安装yarn  
     #- name: action-yarn
     #  uses: comchangs/action-yarn@v0.1-beta  
-    # 安装vuepress到本地依赖，并且构建生成静态资源  
-    - run: cd ./frontend/ &&  yarn add -D vuepress && yarn docs:build
-    - run: mv ./frontend/docs/.vuepress/dist ./frontend/docs/.vuepress/blog   
-    
+  
     # 通过ssh的方式传输runer机器生成的dist文件夹到目标部署机器的www目录
     - name: ssh deploy
       uses: easingthemes/ssh-deploy@v2.1.2
