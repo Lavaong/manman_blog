@@ -7,7 +7,7 @@ nohup yarn docs:build &
 t1=`date +%s`
 t2=`date +%s`
 i=$(( $t2 - $t1 ))
-while [[ "$i" -ne "60"  ]]
+while [[ "$i" -ne "90"  ]]
 do
     t2=`date +%s`
 	  i=$(( $t2 - $t1 ))

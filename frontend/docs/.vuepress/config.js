@@ -27,7 +27,7 @@ module.exports = {
                 options: {
                     clientID: 'e366516a0b47a60820fd',
                     clientSecret: '96577125335d54765b83632be85ec161351c3bf7',
-                    repo: 'https://github.com/Lavaong/manman_blog',
+                    repo: 'manman_blog',
                     owner: 'Lavaong',
                     admin: ['Lavaong'],
                     distractionFreeMode: false,
