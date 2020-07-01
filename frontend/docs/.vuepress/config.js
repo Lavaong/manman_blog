@@ -25,8 +25,8 @@ module.exports = {
             {
                 choosen: 'gitalk',
                 options: {
-                    clientID: 'e366516a0b47a60820fd',
-                    clientSecret: '96577125335d54765b83632be85ec161351c3bf7',
+                    clientID: '7e866cfcdf2ff207f297',
+                    clientSecret: '90b2f45501857ae97dad950d6d899d248b87ec72',
                     repo: 'manman_blog',
                     owner: 'Lavaong',
                     admin: ['Lavaong'],
@@ -49,7 +49,7 @@ module.exports = {
         ],
         logo:'/img/me.png',
         sidebarDepth: 2,
-        docsDir: 'docs',
+        docsDir: 'frontend/docs',
         editLinks: true, // 启用编辑链接
         editLinkText: '编辑',
         repo: 'https://github.com/Lavaong/manman_blog/',
