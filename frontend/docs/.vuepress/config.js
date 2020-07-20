@@ -58,7 +58,7 @@ module.exports = {
             {text:'Java相关',link:'/navator/java/',
              items:[
                  {text:'JDK源码解读',link:'/pages/c2f811/'},
-                 {text:'DB',link:'/pages/6a99ec/'},
+                 {text:'DB',link:'/pages/8d1c26/'},
                  {text:'中间件',link:'/pages/fe8c12/'},
                  {text:'微服务',link:'/pages/978aa2/'},
                  {text:'数据结构和算法',link:'/pages/50ad24/'},
