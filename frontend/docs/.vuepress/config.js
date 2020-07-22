@@ -94,24 +94,6 @@ module.exports = {
                     return moment(timestamp).format('YYYY/MM/DD, H:MM:SS');
                 }
             }
-        ],
-        [
-            'vuepress-plugin-comment',
-            {
-                choosen: 'gitalk',
-                options: {
-                    clientID: '7e866cfcdf2ff207f297',
-                    clientSecret: '90b2f45501857ae97dad950d6d899d248b87ec72',
-                    repo: 'manman_blog',
-                    owner: 'Lavaong',
-                    admin: ['Lavaong'],
-                    pagerDirection: 'last', // 'first'正序 | 'last'倒序
-					id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-					title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
-					labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-					body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容// GitHub issue 的内容
-                }
-            }
         ]
     ],
 }
