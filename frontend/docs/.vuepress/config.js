@@ -10,36 +10,6 @@ module.exports = {
     markdown: {
         lineNumbers: true // 代码行号
     },
-    plugins:[
-        [
-            '@vuepress/last-updated', // "上次更新"时间格式
-            {
-                transformer: (timestamp, lang) => {
-                    const moment = require('moment') // https://momentjs.com/
-                    return moment(timestamp).format('YYYY/MM/DD, H:MM:SS');
-                }
-            }
-        ],
-        [
-            'vuepress-plugin-comment',
-            {
-                choosen: 'gitalk',
-                options: {
-                    clientID: '7e866cfcdf2ff207f297',
-                    clientSecret: '90b2f45501857ae97dad950d6d899d248b87ec72',
-                    repo: 'manman_blog',
-                    owner: 'Lavaong',
-                    admin: ['Lavaong'],
-                    distractionFreeMode: false,
-                    pagerDirection: 'last', // 'first'正序 | 'last'倒序
-                    id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", //  页面的唯一标识,长度不能超过50
-                    title: "「评论」<%- document.title %>", // GitHub issue 的标题
-                    labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-                    body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
-                }
-            }
-        ]
-    ],
     themeConfig: {
         sidebar: 'structuring',
         categoryText:'零零总总',
@@ -114,5 +84,34 @@ module.exports = {
             createYear: 2019, // 博客创建年份
             copyrightInfo: 'Sky Dragon0 | MIT License', // 博客版权信息，支持a标签
         }
-    }
+    },
+	plugins:[
+        [
+            '@vuepress/last-updated', // "上次更新"时间格式
+            {
+                transformer: (timestamp, lang) => {
+                    const moment = require('moment') // https://momentjs.com/
+                    return moment(timestamp).format('YYYY/MM/DD, H:MM:SS');
+                }
+            }
+        ],
+        [
+            'vuepress-plugin-comment',
+            {
+                choosen: 'gitalk',
+                options: {
+                    clientID: '7e866cfcdf2ff207f297',
+                    clientSecret: '90b2f45501857ae97dad950d6d899d248b87ec72',
+                    repo: 'manman_blog',
+                    owner: 'Lavaong',
+                    admin: ['Lavaong'],
+                    pagerDirection: 'last', // 'first'正序 | 'last'倒序
+					id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+					title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+					labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+					body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容// GitHub issue 的内容
+                }
+            }
+        ]
+    ],
 }
