@@ -45,3 +45,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.mvn/
+./frontend/package-lock.json
+
